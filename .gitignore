@@ -10,3 +10,12 @@ gradle-app.setting
 
 .env.local
 .env.*.local
+.idea/.gitignore
+.idea/.name
+.idea/compiler.xml
+.idea/gradle.xml
+.idea/jarRepositories.xml
+.idea/jpa-buddy.xml
+.idea/misc.xml
+.idea/uiDesigner.xml
+.idea/vcs.xml
