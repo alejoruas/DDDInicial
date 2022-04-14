@@ -6,4 +6,8 @@ public final class CourseId extends Identifier {
     public CourseId(String id) {
         super(id);
     }
+
+    private CourseId() {
+        super("");
+    }
 }

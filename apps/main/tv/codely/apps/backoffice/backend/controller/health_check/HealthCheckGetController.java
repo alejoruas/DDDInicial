@@ -19,7 +19,7 @@ public final class HealthCheckGetController extends ApiController {
         super(queryBus, commandBus);
     }
 
-    @GetMapping("/health-check")
+    @GetMapping("/health-check-backoffice")
     public HashMap<String, String> index() {
         HashMap<String, String> status = new HashMap<>();
         status.put("application", "backoffice_backend");

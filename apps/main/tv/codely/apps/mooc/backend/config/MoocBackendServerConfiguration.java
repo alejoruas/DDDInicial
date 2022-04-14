@@ -15,7 +15,7 @@ public class MoocBackendServerConfiguration {
     }
 
     @Bean
-    public FilterRegistrationBean<ApiExceptionMiddleware> basicHttpAuthMiddleware() {
+    public FilterRegistrationBean<ApiExceptionMiddleware> basicHttpAuthMiddlewareMooc() {
         FilterRegistrationBean<ApiExceptionMiddleware> registrationBean = new FilterRegistrationBean<>();
 
         registrationBean.setFilter(new ApiExceptionMiddleware(mapping));

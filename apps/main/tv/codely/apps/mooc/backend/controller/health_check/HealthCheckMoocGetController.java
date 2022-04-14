@@ -11,15 +11,15 @@ import tv.codely.shared.infrastructure.spring.ApiController;
 import java.util.HashMap;
 
 @RestController
-public final class HealthCheckGetController extends ApiController {
-    public HealthCheckGetController(
+public final class HealthCheckMoocGetController extends ApiController {
+    public HealthCheckMoocGetController(
         QueryBus queryBus,
         CommandBus commandBus
     ) {
         super(queryBus, commandBus);
     }
 
-    @GetMapping("/health-check")
+    @GetMapping("/health-check-mooc")
     public HashMap<String, String> index() {
         HashMap<String, String> status = new HashMap<>();
         status.put("application", "mooc_backend");

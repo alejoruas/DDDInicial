@@ -3,6 +3,7 @@ package tv.codely.apps;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import tv.codely.apps.backoffice.backend.BackofficeBackendApplication;
@@ -13,8 +14,8 @@ import tv.codely.shared.infrastructure.cli.ConsoleCommand;
 import java.util.Arrays;
 import java.util.HashMap;
 
-@SpringBootApplication
-@ComponentScan({"tv.codely.apps", "tv.codely.mooc"})
+//@SpringBootApplication (exclude = HibernateJpaAutoConfiguration.class)
+//@ComponentScan({"tv.codely.apps", "tv.codely.mooc", "tv.codely.backoffice"})
 public class Starter {
     public static void main(String[] args) {
         if (args.length < 2) {
