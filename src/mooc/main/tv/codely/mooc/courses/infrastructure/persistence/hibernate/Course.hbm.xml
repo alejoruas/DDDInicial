@@ -16,6 +16,5 @@
         <component name="duration" class="tv.codely.mooc.courses.domain.CourseDuration" access="field">
             <property name="value" column="duration" type="string" access="field"></property>
         </component>
-
     </class>
 </hibernate-mapping>

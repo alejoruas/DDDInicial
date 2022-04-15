@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import tv.codely.mooc.Students.domain.StudentIdMother;
 import tv.codely.mooc.Students.domain.StudentMother;
 import tv.codely.mooc.students.domain.*;
-import tv.codely.mooc.students.infrastructure.InMemoryStudentRepository;
+import tv.codely.mooc.students.infrastructure.persistence.InMemoryStudentRepository;
 
 import java.util.Optional;
 

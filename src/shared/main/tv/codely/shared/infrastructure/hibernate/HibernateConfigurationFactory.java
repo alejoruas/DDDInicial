@@ -83,6 +83,7 @@ public final class HibernateConfigurationFactory {
 
             for (String file : files) {
                 goodPaths.add(module + "/infrastructure/persistence/hibernate/" + file);
+                System.out.println(module + "/infrastructure/persistence/hibernate/" + file);
             }
         }
 

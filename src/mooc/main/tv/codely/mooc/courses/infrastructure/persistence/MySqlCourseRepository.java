@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 import tv.codely.mooc.courses.domain.Course;
+import tv.codely.mooc.courses.domain.CourseId;
 import tv.codely.mooc.courses.domain.CourseRepository;
 import tv.codely.shared.domain.Service;
 
@@ -24,7 +25,7 @@ public class MySqlCourseRepository implements CourseRepository {
     }
 
     @Override
-    public Optional<Course> search(String id) {
+    public Optional<Course> search(CourseId id) {
         return Optional.ofNullable(sessionFactory.getCurrentSession().find(Course.class, id));
     }
 }

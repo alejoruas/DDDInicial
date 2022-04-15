@@ -7,6 +7,10 @@ public final class Course {
     private CourseName name;
     private CourseDuration duration;
 
+    private Course() {
+        super();
+    }
+
     public Course(CourseId id, CourseName name, CourseDuration duration) {
         this.id = id;
         this.name = name;

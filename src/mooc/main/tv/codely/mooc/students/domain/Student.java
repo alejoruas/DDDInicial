@@ -8,6 +8,14 @@ public final class Student {
     private final StudentSurname surname;
     private final StudentEmail email;
 
+    private Student() {
+        super();
+        id = null;
+        name = null;
+        surname = null;
+        email = null;
+    }
+
     public Student(StudentId id, StudentName name, StudentSurname surname, StudentEmail email) {
         this.id = id;
         this.name = name;
@@ -46,5 +54,15 @@ public final class Student {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, surname, email);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+            "id=" + id +
+            ", name=" + name +
+            ", surname=" + surname +
+            ", email=" + email +
+            '}';
     }
 }

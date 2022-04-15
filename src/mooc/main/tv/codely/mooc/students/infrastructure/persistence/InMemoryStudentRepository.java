@@ -1,4 +1,4 @@
-package tv.codely.mooc.students.infrastructure;
+package tv.codely.mooc.students.infrastructure.persistence;
 
 import tv.codely.mooc.students.domain.Student;
 import tv.codely.mooc.students.domain.StudentId;
@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
-@Service
 public final class InMemoryStudentRepository implements StudentRepository {
     private HashMap<String, Student> map = new HashMap<>();
     @Override
