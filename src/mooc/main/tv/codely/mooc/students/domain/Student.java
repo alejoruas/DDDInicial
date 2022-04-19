@@ -1,5 +1,9 @@
 package tv.codely.mooc.students.domain;
 
+import tv.codely.shared.domain.bus.event.EventBus;
+import tv.codely.shared.domain.student.StudentRegisteredDomainEvent;
+
+import java.util.Collections;
 import java.util.Objects;
 
 public final class Student {
@@ -23,8 +27,15 @@ public final class Student {
         this.email = email;
     }
 
-    public static Student create(StudentId id, StudentName name, StudentSurname surname, StudentEmail email) {
-        return new Student(id, name, surname, email);
+    public static Student create(StudentId id, StudentName name, StudentSurname surname, StudentEmail email, StudentRepository repository, EventBus eventBus) {
+        Student student = new Student(id, name, surname, email);
+
+        repository.register(student);
+        eventBus.publish(Collections.singletonList(
+            new StudentRegisteredDomainEvent(id.value(), name.value(), surname.value(), email.toString())
+        ));
+
+        return student;
     }
 
     public StudentId id() {

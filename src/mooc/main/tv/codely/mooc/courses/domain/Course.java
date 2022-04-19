@@ -1,20 +1,39 @@
 package tv.codely.mooc.courses.domain;
 
+import tv.codely.shared.domain.bus.event.EventBus;
+import tv.codely.shared.domain.course.CourseCreatedDomainEvent;
+
+import java.util.Collections;
 import java.util.Objects;
 
 public final class Course {
-    private CourseId id;
-    private CourseName name;
-    private CourseDuration duration;
+    private final CourseId id;
+    private final CourseName name;
+    private final CourseDuration duration;
 
     private Course() {
-        super();
+        this.id = null;
+        this.name = null;
+        this.duration = null;
     }
 
-    public Course(CourseId id, CourseName name, CourseDuration duration) {
+    public Course (CourseId id, CourseName name, CourseDuration duration) {
         this.id = id;
         this.name = name;
         this.duration = duration;
+    }
+
+    public static Course create(CourseId id, CourseName name, CourseDuration duration, CourseRepository repository, EventBus eventBus) {
+        Course course = new Course(id, name, duration);
+
+        repository.save(course);
+        eventBus.publish(Collections.singletonList(new CourseCreatedDomainEvent(
+            id.value(),
+            name.value(),
+            duration.value()))
+        );
+
+        return course;
     }
 
     public CourseId id() {

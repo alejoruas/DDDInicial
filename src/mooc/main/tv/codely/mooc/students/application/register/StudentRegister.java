@@ -2,13 +2,19 @@ package tv.codely.mooc.students.application.register;
 
 import tv.codely.mooc.students.domain.*;
 import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.bus.event.EventBus;
+import tv.codely.shared.domain.student.StudentRegisteredDomainEvent;
+
+import java.util.Collections;
 
 @Service
 public final class StudentRegister {
     private StudentRepository repository;
+    private EventBus eventBus;
 
-    public StudentRegister(StudentRepository repository) {
+    public StudentRegister(StudentRepository repository, EventBus eventBus) {
         this.repository = repository;
+        this.eventBus = eventBus;
     }
 
     public void registerStudent(RegisterStudentRequest request) {
@@ -17,8 +23,6 @@ public final class StudentRegister {
         StudentSurname studentSurname = new StudentSurname(request.surname());
         StudentEmail studentEmail = new StudentEmail(request.email());
 
-        Student student = new Student(studentId, studentName, studentSurname, studentEmail);
-
-        repository.register(student);
+        Student student = Student.create(studentId, studentName, studentSurname, studentEmail, repository, eventBus);
     }
 }
