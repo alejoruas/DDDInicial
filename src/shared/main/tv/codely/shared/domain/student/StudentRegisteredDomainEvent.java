@@ -39,12 +39,25 @@ public class StudentRegisteredDomainEvent extends DomainEvent {
 
     @Override
     public HashMap<String, Serializable> toPrimitives() {
-        return null;
+        return new HashMap<String, Serializable>() {
+            {
+                put("name", name);
+                put("surname", surName);
+                put("email", email);
+            }
+        };
     }
 
     @Override
     public DomainEvent fromPrimitives(String aggregateId, HashMap<String, Serializable> body, String eventId, String occurredOn) {
-        return null;
+        return new StudentRegisteredDomainEvent(
+            aggregateId,
+            eventId,
+            occurredOn,
+            (String) body.get("name"),
+            (String) body.get("surname"),
+            (String) body.get("email")
+            );
     }
 
     public String name() {
