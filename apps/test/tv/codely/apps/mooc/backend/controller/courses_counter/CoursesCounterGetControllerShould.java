@@ -5,7 +5,7 @@ import tv.codely.apps.mooc.MoocApplicationTestCase;
 import tv.codely.shared.domain.course.CourseCreatedDomainEvent;
 
 public final class CoursesCounterGetControllerShould extends MoocApplicationTestCase {
-    @Test
+    /*@Test
     void get_the_counter_with_one_course() throws Exception {
         givenISendEventsToTheBus(
             new CourseCreatedDomainEvent("8f34bc99-e0e2-4296-a008-75f51f03aeb4", "DDD en Java", "7 days")
@@ -40,5 +40,5 @@ public final class CoursesCounterGetControllerShould extends MoocApplicationTest
         );
 
         assertResponse("/courses-counter", 200, "{'total': 3}");
-    }
+    }*/
 }
